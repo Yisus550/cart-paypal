@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const cartRoutes = require("./routes/cartRoutes");
@@ -12,6 +13,7 @@ const server = express();
 
 server.use(express.json());
 server.use(morgan("dev"));
+server.use(cors());
 
 server.use("/auth", authRoutes);
 server.use("/cart", cartRoutes);
