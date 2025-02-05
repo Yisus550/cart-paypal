@@ -10,14 +10,14 @@ const connectDB = async () => {
     const db = new Sequelize(process.env.DB_URL, {
       dialectOptions : {
         ssl: {
-          ca: fs.readFileSync(__dirname + '/../certs/ca.crt')
+        ca: fs.readFileSync(__dirname + './../../ca.crt')
         }
       }
     });
     await db.authenticate();
     console.log(colors.green("Database connected successfully"));
   } catch (error) {
-    console.error(colors.red(`Error connecting to database: ${error.message}`));
+    console.error(colors.red.bold(`Error connecting to database: ${error.message}`));
     process.exit(1);
   }
 };
