@@ -10,7 +10,7 @@ const connectDB = async () => {
     const db = new Sequelize(process.env.DB_URL, {
       dialectOptions : {
         ssl: {
-        ca: fs.readFileSync(__dirname + './../../ca.crt')
+        ca: fs.readFileSync(__dirname + '/../../ca.crt')
         }
       }
     });
